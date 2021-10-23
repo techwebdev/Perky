@@ -7,9 +7,21 @@ import {
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { theme } from '../theme';
+import LinearGradient from 'react-native-linear-gradient';
 
 const SCR_HEIGHT = Dimensions.get('window').height;
 const SCR_WIDTH = Dimensions.get('window').width;
+
+const gradient1 = ['rgba(161, 222, 255, .5)', 'rgba(75, 77, 117, .01)', 'rgba(75, 77, 117, .1)'];
+const gradient2 = ['rgba(255, 181, 193, .5)', 'rgba(75, 77, 117, .01)', 'rgba(75, 77, 117, .1)'];
+const gradient3 = [];
+const gradient4 = [];
+
+/**
+ * For the sake of saving
+ * time, all components are in
+ * one file, here.
+ */
 
 const Spacer = ({ size, horizontal = false }) => {
     const horizontalStyle = {
@@ -23,36 +35,26 @@ const Spacer = ({ size, horizontal = false }) => {
     );
 };
 
+const SearchButton = () => (
+    <View>
+
+    </View>
+);
+
 const Header = () => {
     return (
         <View style={styles.header}>
-            <Text></Text>
+            <Text style={{
+                fontSize: 24,
+                fontWeight: '700',
+                color: theme.light,
+            }}>Hey Yasir!{'\n'}Find what you want</Text>
+
+            <SearchButton
+            />
         </View>
     );
 };
-
-// const getBoxStyle = (index) => {
-//     // const heightSmall = 10;
-//     // const heightLarge = 50;
-//     const height = {
-//         height: 140
-//     };
-
-//     const flex = {
-//         flex: 1
-//     };
-
-//     const size = {
-//         '0': flex,
-//         '1': heightSmall,
-//         '2': heightSmall,
-//         '3': heightLarge
-//     };
-
-//     return {
-//         padding: size[index.toString()]
-//     };
-// };
 
 const Column = ({ children }) => {
     return (
@@ -66,7 +68,7 @@ const Title = ({ title }) => (
     <Text style={{
         marginTop: 10,
         color: theme.light,
-        fontWeight: '600',
+        fontWeight: '700',
         fontSize: 20,
         marginRight: 30,
     }}>
@@ -104,12 +106,17 @@ const SmallBoxView = ({
     }
 }) => {
     return (
-        <View style={styles.smallBoxView}>
+        <LinearGradient
+            start={{ x: 0.2, y: 0.2 }}
+            // locations={[0.0]}
+            colors={['rgba(255, 181, 193, .5)', 'rgba(75, 77, 117, .01)', 'rgba(75, 77, 117, .1)']}
+            style={styles.smallBoxView}
+        >
             <Logo />
             <Title
                 {...{ title }}
             />
-        </View>
+        </LinearGradient>
     );
 };
 
@@ -121,7 +128,11 @@ const LargeBoxView = ({
     }
 }) => {
     return (
-        <View style={styles.largeBoxView}>
+        <LinearGradient
+            start={{ x: 0.0, y: 0.2 }}
+            colors={['rgba(161, 222, 255, .5)', 'rgba(75, 77, 117, .01)', 'rgba(75, 77, 117, .1)']}
+            style={styles.largeBoxView}
+        >
             <Logo />
             <Title
                 {...{ title }}
@@ -136,7 +147,7 @@ const LargeBoxView = ({
             <Reviews
                 {...{ reviewCount }}
             />
-        </View>
+        </LinearGradient>
     );
 };
 
@@ -192,7 +203,7 @@ const SectionTitle = ({ title }) => {
         <View style={styles.sectionTitleContainer}>
             <Text style={{
                 fontSize: 25,
-                fontWeight: '600',
+                fontWeight: '700',
                 color: theme.text1
             }}>{title}</Text>
         </View>
@@ -250,12 +261,14 @@ const styles = StyleSheet.create({
     },
     layout: {
         flex: 1,
-        paddingHorizontal: 20,
+        paddingHorizontal: 28,
         paddingVertical: 20
     },
     header: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
         height: 72,
-        borderWidth: 1,
+        // borderWidth: 1,
         borderRadius: 20,
         borderColor: theme.light
     },
@@ -265,7 +278,7 @@ const styles = StyleSheet.create({
     },
     box: {
         width: '48%',
-        borderWidth: 1,
+        // borderWidth: 1,
         marginTop: 16,
         borderRadius: 20,
     },
@@ -281,19 +294,21 @@ const styles = StyleSheet.create({
         height: 140,
         padding: 20,
         borderRadius: 26,
-        borderWidth: 1,
+        // borderWidth: 1,
+        backgroundColor: 'rgba(179, 184, 232, .15)',
         borderColor: theme.light
     },
     largeBoxView: {
         flex: 1,
         padding: 20,
         borderRadius: 26,
-        borderWidth: 1,
+        // borderWidth: 1,
+        backgroundColor: 'rgba(179, 184, 232, 0.15)',
         borderColor: theme.light
     },
     sectionTitleContainer: {
         height: 72,
-        borderWidth: 1,
+        // borderWidth: 1,
         borderColor: theme.light,
         borderRadius: 20,
         justifyContent: 'center'
@@ -301,7 +316,7 @@ const styles = StyleSheet.create({
     bestSection: {
         flexGrow: 1,
         flexDirection: 'row',
-        borderWidth: 1,
+        // borderWidth: 1,
         borderColor: theme.light,
         borderRadius: 22
     }
