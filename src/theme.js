@@ -1,3 +1,8 @@
 export const theme = {
-    light: '#fff'
+    light: '#fff',
+    border: '#000',
+    bg: '#474B6F',
+    text1: '#fff',
+
+    test: 'yellow'
 }

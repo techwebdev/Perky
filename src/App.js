@@ -31,7 +31,7 @@ const App = () => {
 const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
-    backgroundColor: theme.light
+    backgroundColor: theme.bg
   }
 });
 
