@@ -14,8 +14,9 @@ const SCR_WIDTH = Dimensions.get('window').width;
 
 const gradient1 = ['rgba(161, 222, 255, .5)', 'rgba(75, 77, 117, .01)', 'rgba(75, 77, 117, .1)'];
 const gradient2 = ['rgba(255, 181, 193, .5)', 'rgba(75, 77, 117, .01)', 'rgba(75, 77, 117, .1)'];
-const gradient3 = [];
-const gradient4 = [];
+const gradient3 = ['rgba(160, 239, 216, .5)', 'rgba(75, 77, 117, .01)', 'rgba(75, 77, 117, .1)'];
+const gradient4 = ['rgba(174, 163, 255, .5)', 'rgba(75, 77, 117, .01)', 'rgba(75, 77, 117, .1)'];
+const gradient5 = ['rgba(214, 218, 255, .5)', 'rgba(75, 77, 117, .01)', 'rgba(75, 77, 117, .1)'];
 
 /**
  * For the sake of saving
@@ -103,13 +104,13 @@ const Reviews = ({ reviewCount }) => {
 const SmallBoxView = ({
     content: {
         title
-    }
+    },
+    colors
 }) => {
     return (
         <LinearGradient
             start={{ x: 0.2, y: 0.2 }}
-            // locations={[0.0]}
-            colors={['rgba(255, 181, 193, .5)', 'rgba(75, 77, 117, .01)', 'rgba(75, 77, 117, .1)']}
+            colors={colors}
             style={styles.smallBoxView}
         >
             <Logo />
@@ -125,12 +126,13 @@ const LargeBoxView = ({
         title,
         rating,
         reviewCount
-    }
+    },
+    colors
 }) => {
     return (
         <LinearGradient
             start={{ x: 0.0, y: 0.2 }}
-            colors={['rgba(161, 222, 255, .5)', 'rgba(75, 77, 117, .01)', 'rgba(75, 77, 117, .1)']}
+            colors={colors}
             style={styles.largeBoxView}
         >
             <Logo />
@@ -158,6 +160,7 @@ const Categories = () => {
             <Column>
 
                 <LargeBoxView
+                    colors={gradient1}
                     content={{
                         title: 'Facebook ads',
                         rating: 4.9,
@@ -168,6 +171,7 @@ const Categories = () => {
                 <Spacer size={14} />
 
                 <SmallBoxView
+                    colors={gradient3}
                     content={{
                         title: 'Art & draw illustration',
                     }}
@@ -178,6 +182,7 @@ const Categories = () => {
             <Column>
 
                 <SmallBoxView
+                    colors={gradient2}
                     content={{
                         title: 'UI/UX Design',
                     }}
@@ -186,6 +191,7 @@ const Categories = () => {
                 <Spacer size={14} />
 
                 <LargeBoxView
+                    colors={gradient4}
                     content={{
                         title: 'Google ads',
                         rating: 4.8,
@@ -212,7 +218,11 @@ const SectionTitle = ({ title }) => {
 
 const BestSection = () => {
     return (
-        <View style={styles.bestSection}>
+        <LinearGradient
+            colors={gradient5}
+            start={{ x: 0.0, y: 0.2 }}
+            style={styles.bestSection}
+        >
             <View style={{ flex: 1 }}>
 
             </View>
@@ -227,7 +237,7 @@ const BestSection = () => {
                 <Text>$1250</Text>
 
             </View>
-        </View>
+        </LinearGradient>
     );
 };
 
@@ -316,7 +326,7 @@ const styles = StyleSheet.create({
     bestSection: {
         flexGrow: 1,
         flexDirection: 'row',
-        // borderWidth: 1,
+        backgroundColor: 'rgba(179, 184, 232, 0.15)',
         borderColor: theme.light,
         borderRadius: 22
     }
