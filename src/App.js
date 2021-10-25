@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
-      <StatusBar barStyle={'dark-content'} />
+      <StatusBar barStyle={'light-content'} />
       <Browse />
     </SafeAreaView>
   );

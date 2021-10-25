@@ -108,7 +108,7 @@ const SearchButton = () => (
                 padding: 8,
                 alignSelf: 'flex-start',
                 borderRadius: 99,
-                marginTop: 18
+                marginTop: 16
             }}>
             <SearchIcon height={26} width={26} stroke={theme.light} />
         </LinearGradient>
@@ -123,7 +123,8 @@ const Header = () => {
                     fontSize: 24,
                     fontWeight: '700',
                     color: theme.light,
-                    alignSelf: 'center'
+                    alignSelf: 'center',
+                    lineHeight: 32,
                 }}>Hey Yasir!{'\n'}Find what you want</Text>
                 <View style={styles.flexOne} />
                 <SearchButton />

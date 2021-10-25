@@ -1,4 +1,4 @@
-package com.perky;
+package perky.yssherzad;
 
 import com.facebook.react.ReactActivity;
 
