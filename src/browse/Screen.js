@@ -1,3 +1,13 @@
+/**
+ *     (╯ ͡❛ ͜ʖ ͡❛)╯┻━┻
+ * **************************************************************
+ * Instagram @ys.sherzad  *************************
+ * Twitter @ys_sherzad  ********************
+ * **************************************************************
+ * "Make Everyday Count" 🇦🇫
+ * 
+ */
+
 import React, { useState } from 'react';
 import {
     StyleSheet,
@@ -154,7 +164,6 @@ const Title = ({ title }) => (
 );
 
 const Logo = ({ icon }) => {
-    console.log('ICON >>> ', icon);
     const Icon = icon ? Art[icon] : null;
     if (Icon) {
         return (
